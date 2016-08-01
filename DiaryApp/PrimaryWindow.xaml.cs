@@ -55,7 +55,7 @@ namespace DiaryApp
             }
             catch(NullReferenceException)
             {
-                MessageBox.Show("Select and item from the list first");
+                MessageBox.Show("Select an item from the list first");
             }
         }
 
@@ -83,7 +83,7 @@ namespace DiaryApp
             }
             catch(NullReferenceException)
             {
-                MessageBox.Show("Select and item from the list first");
+                MessageBox.Show("Select an item from the list first");
             }
             ListFilesInDirectory(CurrentPath);
         }
