@@ -1,0 +1,18 @@
+﻿<Window x:Class="DiaryApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DiaryApp"
+        mc:Ignorable="d"
+        Title="Personal Diary" Height="400" Width="700">
+    <Grid>
+        <Button x:Name="NewEntry" Content="Create New Entry" HorizontalAlignment="Right" Margin="0,40,30,0" VerticalAlignment="Top" Width="112" Height="28" Click="NewEntry_Click"/>
+        <Button x:Name="DeleteEntry" Content="Delete" HorizontalAlignment="Right" Margin="0,160,30,0" VerticalAlignment="Top" Width="112" Height="28" Click="DeleteEntry_Click"/>
+        <Button x:Name="EditEntry" Content="Edit Entry" HorizontalAlignment="Right" Margin="0,100,30,0" VerticalAlignment="Top" Width="112" Height="28" Click="EditEntry_Click"/>
+        <Button x:Name="Options" Content="Options" HorizontalAlignment="Right" Margin="0,220,30,0" VerticalAlignment="Top" Width="112" Height="28" Click="Options_Click"/>
+        <Button x:Name="Exit" Content="Exit" HorizontalAlignment="Right" Margin="0,280,30,0" VerticalAlignment="Top" Width="112" Height="28" Click="Exit_Click" Background="#FFF76354"/>
+        <ListBox x:Name="listBox" Height="268" Margin="150,40,218,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" SelectionChanged="listBox_SelectionChanged"/>
+
+    </Grid>
+</Window>
