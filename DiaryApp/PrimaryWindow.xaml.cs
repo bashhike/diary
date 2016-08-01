@@ -21,7 +21,7 @@ namespace DiaryApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        private string CurrentPath = "E:\\temp";
+        public static string CurrentPath = File.ReadAllLines("diaryconfig.ini")[1];
 
         public MainWindow()
         {
@@ -38,32 +38,52 @@ namespace DiaryApp
         {
             NewEntryWindow win = new NewEntryWindow();
             win.Show();
+            Close();
         }
 
         private void EditEntry_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                string item = listBox.SelectedItem.ToString();
+                File.WriteAllText("edit.dat", item);
+                EditFile win = new EditFile();
+                win.Show();
+                Close();
+            }
+            catch(NullReferenceException)
+            {
+                MessageBox.Show("Select and item from the list first");
+            }
         }
 
         private void Options_Click(object sender, RoutedEventArgs e)
         {
-            string item = listBox.SelectedItem.ToString();
-            MessageBox.Show(item);
+            Window1 OptionsWin = new Window1();
+            OptionsWin.Show();
+            Close();
         }
 
         private void DeleteEntry_Click(object sender, RoutedEventArgs e)
         {
-            string item = listBox.SelectedItem.ToString();
-            string file = CurrentPath + "\\" + item;
             try
             {
-                File.Delete(file);
-                ListFilesInDirectory(CurrentPath);
+                string item = listBox.SelectedItem.ToString();
+                string file = CurrentPath + "\\" + item;
+                try
+                {
+                    File.Delete(file);
+                }
+                catch (IOException)
+                {
+                    MessageBox.Show("Error while deleting the file :", item);
+                }
             }
-            catch(IOException)
+            catch(NullReferenceException)
             {
-                MessageBox.Show("Error while deleting the file :", item);
+                MessageBox.Show("Select and item from the list first");
             }
+            ListFilesInDirectory(CurrentPath);
         }
 
         public void ListFilesInDirectory(string directory)

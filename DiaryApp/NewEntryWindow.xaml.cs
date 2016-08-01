@@ -27,15 +27,19 @@ namespace DiaryApp
 
         private void CancelNewEntry_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow NewWindow = new MainWindow();
+            NewWindow.Show();
             Close();
         }
 
         private void SubmitNewEntry_Click(object sender, RoutedEventArgs e)
         {
             string DiaryEntryText = NewEntryText.Text ;
-            string filename = DateTime.Now.ToString("MM-dd-yyyy_HH-mm-ss");
-            filename += ".diary";
+            string filename = DateTime.Now.ToString("ddMMMyyyy_HHmmss");
+            filename = MainWindow.CurrentPath + "\\" + filename + ".diary";
             File.WriteAllText(filename, DiaryEntryText);
+            MainWindow NewWindow = new MainWindow();
+            NewWindow.Show();
             Close();
         }
     }
