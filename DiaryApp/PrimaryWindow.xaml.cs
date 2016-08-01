@@ -21,7 +21,9 @@ namespace DiaryApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static string CurrentPath = File.ReadAllLines("diaryconfig.ini")[1];
+        
+        public static string CurrentPath = File.Exists("diaryconfig.ini")?File.ReadAllLines("diaryconfig.ini")[1]:
+            Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
         public MainWindow()
         {

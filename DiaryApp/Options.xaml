@@ -10,7 +10,7 @@
         <TextBox x:Name="CurDir" HorizontalAlignment="Stretch" Height="30" Margin="53,98,55,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="15"/>
         <Button x:Name="SubmitButton" Content="Submit" HorizontalAlignment="Stretch" Margin="53,186,214,0" VerticalAlignment="Top" Width="125" Height="30" Click="SubmitButton_Click"/>
         <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Stretch" Margin="228,186,39,0" VerticalAlignment="Top" Width="125" Height="30" Background="#FFF74B4B" Click="CancelButton_Click"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Stretch" Margin="21,27,0,0" TextWrapping="Wrap" Text="Directory for saving .diary files. Be sure to escape the backslash with another backslash. eg. '\\' " VerticalAlignment="Top" Width="348" Height="32"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Stretch" Margin="21,27,0,0" TextWrapping="Wrap" Text="Directory for saving .diary files. Default is My Documents Folder. Be sure to escape the backslash with another backslash. eg. '\\' " VerticalAlignment="Top" Width="348" Height="32"/>
 
     </Grid>
 </Window>
