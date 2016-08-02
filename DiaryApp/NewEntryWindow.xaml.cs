@@ -39,7 +39,7 @@ namespace DiaryApp
             string DiaryEntryText = NewEntryText.Text ;
             DiaryEntryText = StringCipher.Encrypt(DiaryEntryText,MainWindow.UserPass);
             string filename = DateTime.Now.ToString("ddMMMyyyy_HHmmss");
-            filename = MainWindow.CurrentPath + "\\" + filename + ".diary";
+            filename = MainWindow.CurrentPath + "\\" + MainWindow.UserName + "-" +filename + ".diary";
             File.WriteAllText(filename, DiaryEntryText);
             MainWindow NewWindow = new MainWindow();
             NewWindow.Show();

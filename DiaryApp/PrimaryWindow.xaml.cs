@@ -24,7 +24,8 @@ namespace DiaryApp
         
         public static string CurrentPath = File.Exists("diaryconfig.ini")?File.ReadAllLines("diaryconfig.ini")[1]:
             Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        public static string UserPass = File.ReadAllText("UserData.dat");
+        public static string UserName = File.ReadAllLines("UserData.dat")[0];
+        public static string UserPass = File.ReadAllLines("UserData.dat")[1];
 
         public MainWindow()
         {

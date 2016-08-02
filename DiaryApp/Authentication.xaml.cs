@@ -27,14 +27,17 @@ namespace DiaryApp
 
         private void SubmitPass_Click(object sender, RoutedEventArgs e)
         {
+            string EnteredUsername = UserName.Text;
             string EnteredPassword = passwordBox.Password;
             if (File.Exists("UserData.dat"))
             {
-                string StoredPassword = File.ReadAllText("UserData.dat");
+                string[] LoginDetails = File.ReadAllLines("UserData.dat");
+                string StoredUsername = LoginDetails[0];
+                string StoredPassword = LoginDetails[1];
                 byte[] data = System.Text.Encoding.ASCII.GetBytes(EnteredPassword);
                 data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
                 EnteredPassword = System.Text.Encoding.ASCII.GetString(data);
-                if(EnteredPassword == StoredPassword)
+                if(EnteredPassword == StoredPassword && EnteredUsername == StoredUsername)
                 {
                     MainWindow NewWindow = new MainWindow();
                     NewWindow.Show();
@@ -48,10 +51,12 @@ namespace DiaryApp
             }
             else
             {
+                string[] LoginDetails = new string[2];
+                LoginDetails[0] = EnteredUsername;
                 byte[] data = System.Text.Encoding.ASCII.GetBytes(EnteredPassword);
                 data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
-                EnteredPassword = System.Text.Encoding.ASCII.GetString(data);
-                File.WriteAllText("UserData.dat",EnteredPassword);
+                LoginDetails[1] = System.Text.Encoding.ASCII.GetString(data);
+                File.WriteAllLines("UserData.dat",LoginDetails);
                 MainWindow NewWindow = new MainWindow();
                 NewWindow.Show();
                 Close();
