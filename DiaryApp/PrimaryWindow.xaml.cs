@@ -48,7 +48,7 @@ namespace DiaryApp
             try
             {
                 string item = listBox.SelectedItem.ToString();
-                File.WriteAllText("edit.dat", item);
+                File.WriteAllText("AppData.dat", item);
                 EditFile win = new EditFile();
                 win.Show();
                 Close();
@@ -92,7 +92,7 @@ namespace DiaryApp
         {
             listBox.Items.Clear();
             DirectoryInfo dinfo = new DirectoryInfo(@directory);
-            FileInfo[] Files = dinfo.GetFiles("*.*");
+            FileInfo[] Files = dinfo.GetFiles("*.diary");
             foreach(FileInfo file in Files)
             {
                 listBox.Items.Add(file.Name);

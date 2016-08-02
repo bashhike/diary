@@ -20,7 +20,7 @@ namespace DiaryApp
     /// </summary>
     public partial class EditFile : Window
     {
-        string filename = File.ReadAllText("edit.dat");
+        string filename = File.ReadAllText("AppData.dat");
         public EditFile()
         {
             InitializeComponent();
