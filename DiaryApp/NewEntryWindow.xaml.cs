@@ -23,6 +23,7 @@ namespace DiaryApp
         public NewEntryWindow()
         {
             InitializeComponent();
+            NewEntryText.Text = DateTime.Now.ToString("F") + "\n\n";
         }
 
         private void CancelNewEntry_Click(object sender, RoutedEventArgs e)
