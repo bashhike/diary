@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
+using System.Security.Cryptography;
 
 namespace DiaryApp
 {
@@ -25,6 +26,7 @@ namespace DiaryApp
         {
             InitializeComponent();
             LoadFile();
+
         }
 
         private void SubmitNewEntry_Click(object sender, RoutedEventArgs e)
@@ -45,9 +47,16 @@ namespace DiaryApp
         }
 
         void LoadFile()
-        {
+        {           
             string InitialText = File.ReadAllText(MainWindow.CurrentPath + "\\" + filename);
-            InitialText = StringCipher.Decrypt(InitialText, MainWindow.UserPass);
+            try
+            {
+                InitialText = StringCipher.Decrypt(InitialText, MainWindow.UserPass);
+            }
+            catch (CryptographicException)
+            {
+                MessageBox.Show("This file uses a different password for encryption.\nYou might not see readable text.");
+            }
             EditText.Text = InitialText;
         }
     }
