@@ -11,8 +11,8 @@
         <Button x:Name="DeleteEntry" Content="Delete" HorizontalAlignment="Right" Margin="0,160,30,0" VerticalAlignment="Top" Width="112" Height="28" Click="DeleteEntry_Click"/>
         <Button x:Name="EditEntry" Content="Edit Entry" HorizontalAlignment="Right" Margin="0,100,30,0" VerticalAlignment="Top" Width="112" Height="28" Click="EditEntry_Click"/>
         <Button x:Name="Options" Content="Options" HorizontalAlignment="Right" Margin="0,220,30,0" VerticalAlignment="Top" Width="112" Height="28" Click="Options_Click"/>
-        <Button x:Name="Exit" Content="Exit" HorizontalAlignment="Right" Margin="0,280,30,0" VerticalAlignment="Top" Width="112" Height="28" Click="Exit_Click" Background="#FFF76354"/>
-        <ListBox x:Name="listBox" Height="268" Margin="150,40,218,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" SelectionChanged="listBox_SelectionChanged"/>
+        <Button x:Name="Exit" Content="Exit" HorizontalAlignment="Right" Margin="0,280,30,0" Width="112" Click="Exit_Click" Background="#FFF76354" Height="28" VerticalAlignment="Top"/>
+        <ListBox x:Name="listBox" Margin="150,40,218,61" RenderTransformOrigin="0.5,0.5" SelectionChanged="listBox_SelectionChanged"/>
 
     </Grid>
 </Window>
