@@ -30,6 +30,7 @@ namespace DiaryApp
         private void SubmitNewEntry_Click(object sender, RoutedEventArgs e)
         {
             string DiaryEntryText = EditText.Text;
+            DiaryEntryText = StringCipher.Encrypt(DiaryEntryText, MainWindow.UserPass);
             File.WriteAllText(MainWindow.CurrentPath + "\\" + filename, DiaryEntryText);
             MainWindow NewWindow = new MainWindow();
             NewWindow.Show();
@@ -46,6 +47,7 @@ namespace DiaryApp
         void LoadFile()
         {
             string InitialText = File.ReadAllText(MainWindow.CurrentPath + "\\" + filename);
+            InitialText = StringCipher.Decrypt(InitialText, MainWindow.UserPass);
             EditText.Text = InitialText;
         }
     }

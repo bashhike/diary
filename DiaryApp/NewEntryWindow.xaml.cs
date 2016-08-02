@@ -37,7 +37,7 @@ namespace DiaryApp
         private void SubmitNewEntry_Click(object sender, RoutedEventArgs e)
         {
             string DiaryEntryText = NewEntryText.Text ;
-            //DiaryEntryText = StringCipher.Encrypt(DiaryEntryText,"ghanta");
+            DiaryEntryText = StringCipher.Encrypt(DiaryEntryText,MainWindow.UserPass);
             string filename = DateTime.Now.ToString("ddMMMyyyy_HHmmss");
             filename = MainWindow.CurrentPath + "\\" + filename + ".diary";
             File.WriteAllText(filename, DiaryEntryText);
