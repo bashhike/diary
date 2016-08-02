@@ -45,7 +45,8 @@ namespace DiaryApp
                 }
                 else
                 {
-                    MessageBox.Show("Wrong Password !!");
+                    MessageBox.Show("Wrong Username or Password !!");
+                    UserName.Clear();
                     passwordBox.Clear();
                 }
             }
