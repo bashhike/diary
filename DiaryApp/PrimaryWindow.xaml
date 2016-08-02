@@ -13,7 +13,7 @@
         <Button x:Name="Options" Content="Options" HorizontalAlignment="Right" Margin="0,220,30,0" VerticalAlignment="Top" Width="112" Height="28" Click="Options_Click"/>
         <Button x:Name="Exit" Content="Exit" HorizontalAlignment="Right" Margin="0,280,30,0" Width="112" Click="Exit_Click" Background="#FFF76354" Height="28" VerticalAlignment="Top"/>
         <ListBox x:Name="listBox" Margin="60,40,0,61" RenderTransformOrigin="0.5,0.5" SelectionChanged="listBox_SelectionChanged" HorizontalAlignment="Left" Width="291" Background="#FFB9D6FF"/>
-        <TextBox x:Name="Preview" Margin="369,40,177,61" TextWrapping="Wrap" Text="Select a file to preview ..." Background="#FFB9C9FF"/>
+        <TextBox x:Name="Preview" Margin="369,40,177,61" TextWrapping="Wrap" FontFamily="Comic Sans MS" Text="Select a file to preview ..." Background="#FFB9C9FF"/>
 
     </Grid>
 </Window>

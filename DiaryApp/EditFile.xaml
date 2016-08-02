@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="EditFile" Height="400" Width="700">
     <Grid Background="#FF306E99">
-        <TextBox x:Name="EditText" HorizontalAlignment="Stretch" Margin="43,24,44,60" TextWrapping="Wrap" Text="" FontSize="15" AcceptsReturn="True" AcceptsTab="True" Background="#FFB9C9FF"/>
+        <TextBox x:Name="EditText" HorizontalAlignment="Stretch" Margin="43,24,44,60" TextWrapping="Wrap" Text="" FontFamily="Comic Sans MS" FontSize="15" AcceptsReturn="True" AcceptsTab="True" Background="#FFB9C9FF"/>
         <Button x:Name="SubmitNewEntry" Content="Save" HorizontalAlignment="Stretch" Margin="161,0,419,16" Width="112" Click="SubmitNewEntry_Click" Height="28" VerticalAlignment="Bottom"/>
         <Button x:Name="CancelNewEntry" Content="Cancel" HorizontalAlignment="Stretch" Margin="394,0,186,16" Width="112" Background="#FFF76354" Click="CancelNewEntry_Click" Height="28" VerticalAlignment="Bottom"/>
     </Grid>
