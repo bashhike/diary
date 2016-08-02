@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DiaryApp"
         mc:Ignorable="d"
         Title="Authentication" Height="400" Width="700">
-    <Grid x:Name="AuthenticationWindow">
+    <Grid x:Name="AuthenticationWindow" Background="#FF306E99">
         <TextBlock x:Name="textBlock" Margin="84,78,102,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" FontSize="14" FontWeight="Bold" FontFamily="Showcard Gothic"><Run Text="&#x9;&#x9;&#x9;"/><Run FontSize="20" Text="Log in to Diary App "/></TextBlock>
         <PasswordBox x:Name="passwordBox" Margin="215,188,214,0" VerticalAlignment="Top"/>
         <Button x:Name="SubmitPass" Content="Login" Margin="315,290,302,0" VerticalAlignment="Top" Click="SubmitPass_Click"/>

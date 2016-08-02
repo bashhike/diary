@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DiaryApp"
         mc:Ignorable="d"
         Title="Customise your Diary" Height="300" Width="400">
-    <Grid x:Name="OptionsDialog">
+    <Grid x:Name="OptionsDialog" Background="#FF64A0C9">
         <TextBox x:Name="CurDir" HorizontalAlignment="Stretch" Height="30" Margin="53,98,55,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="15"/>
         <Button x:Name="SubmitButton" Content="Submit" HorizontalAlignment="Stretch" Margin="53,186,214,0" VerticalAlignment="Top" Width="125" Height="30" Click="SubmitButton_Click"/>
         <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Stretch" Margin="228,186,39,0" VerticalAlignment="Top" Width="125" Height="30" Background="#FFF74B4B" Click="CancelButton_Click"/>
