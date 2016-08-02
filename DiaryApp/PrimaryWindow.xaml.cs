@@ -103,7 +103,17 @@ namespace DiaryApp
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            string file = listBox.SelectedItem.ToString();
+            string InitialText = File.ReadAllText(MainWindow.CurrentPath + "\\" + file);
+            try
+            {
+                InitialText = StringCipher.Decrypt(InitialText, MainWindow.UserPass);
+            }
+            catch (System.Security.Cryptography.CryptographicException)
+            {
+                MessageBox.Show("This file uses a different password for encryption.\nYou might not see readable text.");
+            }
+            Preview.Text = InitialText;
         }
     }
 }

@@ -10,7 +10,7 @@
         <TextBlock x:Name="textBlock" Margin="84,78,102,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" FontSize="14" FontWeight="Bold" FontFamily="Showcard Gothic"><Run Text="&#x9;&#x9;&#x9;"/><Run FontSize="20" Text="Log in to Diary App "/></TextBlock>
         <PasswordBox x:Name="passwordBox" Margin="215,188,214,0" VerticalAlignment="Top"/>
         <Button x:Name="SubmitPass" Content="Login" Margin="315,290,302,0" VerticalAlignment="Top" Click="SubmitPass_Click"/>
-        <TextBox x:Name="UserName" Height="19" Margin="215,141,214,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <TextBox x:Name="UserName" Height="19" Margin="215,141,214,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" TextChanged="UserName_TextChanged"/>
         <TextBlock x:Name="Usernametext" Margin="215,125,396,0" TextWrapping="Wrap" Text="Username :" VerticalAlignment="Top"/>
         <TextBlock x:Name="Passwordtext" Margin="215,172,396,0" TextWrapping="Wrap" Text="Password :" VerticalAlignment="Top"/>
 

@@ -63,5 +63,10 @@ namespace DiaryApp
                 Close();
             }
         }
+
+        private void UserName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

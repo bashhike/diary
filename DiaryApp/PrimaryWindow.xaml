@@ -5,14 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DiaryApp"
         mc:Ignorable="d"
-        Title="Personal Diary" Height="400" Width="700">
+        Title="Personal Diary" Height="400" Width="800">
     <Grid>
         <Button x:Name="NewEntry" Content="Create New Entry" HorizontalAlignment="Right" Margin="0,40,30,0" VerticalAlignment="Top" Width="112" Height="28" Click="NewEntry_Click"/>
         <Button x:Name="DeleteEntry" Content="Delete" HorizontalAlignment="Right" Margin="0,160,30,0" VerticalAlignment="Top" Width="112" Height="28" Click="DeleteEntry_Click"/>
         <Button x:Name="EditEntry" Content="Edit Entry" HorizontalAlignment="Right" Margin="0,100,30,0" VerticalAlignment="Top" Width="112" Height="28" Click="EditEntry_Click"/>
         <Button x:Name="Options" Content="Options" HorizontalAlignment="Right" Margin="0,220,30,0" VerticalAlignment="Top" Width="112" Height="28" Click="Options_Click"/>
         <Button x:Name="Exit" Content="Exit" HorizontalAlignment="Right" Margin="0,280,30,0" Width="112" Click="Exit_Click" Background="#FFF76354" Height="28" VerticalAlignment="Top"/>
-        <ListBox x:Name="listBox" Margin="150,40,218,61" RenderTransformOrigin="0.5,0.5" SelectionChanged="listBox_SelectionChanged"/>
+        <ListBox x:Name="listBox" Margin="60,40,0,61" RenderTransformOrigin="0.5,0.5" SelectionChanged="listBox_SelectionChanged" HorizontalAlignment="Left" Width="291"/>
+        <TextBox x:Name="Preview" Margin="369,40,177,61" TextWrapping="Wrap" Text="Select a file to preview ..."/>
 
     </Grid>
 </Window>
