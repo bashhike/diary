@@ -23,6 +23,11 @@ namespace DiaryApp
         public Authentication()
         {
             InitializeComponent();
+            if (!File.Exists("UserData.dat"))
+            {
+                textBlock.FontSize = 16;
+                textBlock.Text = "\t\t\tRegister";
+            }
         }
 
         private void SubmitPass_Click(object sender, RoutedEventArgs e)
