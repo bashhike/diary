@@ -34,7 +34,7 @@ namespace DiaryApp
             if (File.Exists("UserData.dat"))
             {
                 string[] LoginDetails = File.ReadAllLines("UserData.dat");
-                MessageBox.Show(LoginDetails[0] + "\n\n" + LoginDetails[2]);
+
                 string StoredUsername = LoginDetails[0];
                 string StoredPassword = LoginDetails[2];
 
