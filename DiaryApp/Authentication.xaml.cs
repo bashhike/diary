@@ -29,17 +29,26 @@ namespace DiaryApp
         {
             string EnteredUsername = UserName.Text;
             string EnteredPassword = passwordBox.Password;
+            string passwd = EnteredPassword;
+            string user = EnteredUsername;
             if (File.Exists("UserData.dat"))
             {
                 string[] LoginDetails = File.ReadAllLines("UserData.dat");
+                MessageBox.Show(LoginDetails[0] + "\n\n" + LoginDetails[2]);
                 string StoredUsername = LoginDetails[0];
-                string StoredPassword = LoginDetails[1];
-                byte[] data = System.Text.Encoding.ASCII.GetBytes(EnteredPassword);
+                string StoredPassword = LoginDetails[2];
+
+                byte[] data = Encoding.ASCII.GetBytes(EnteredPassword);
                 data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
-                EnteredPassword = System.Text.Encoding.ASCII.GetString(data);
-                if(EnteredPassword == StoredPassword && EnteredUsername == StoredUsername)
+                EnteredPassword = Encoding.ASCII.GetString(data);
+
+                byte[] newdata = Encoding.ASCII.GetBytes(EnteredUsername);
+                newdata = new System.Security.Cryptography.SHA256Managed().ComputeHash(newdata);
+                EnteredUsername = Encoding.ASCII.GetString(newdata);
+
+                if (EnteredPassword == StoredPassword && EnteredUsername == StoredUsername)
                 {
-                    MainWindow NewWindow = new MainWindow();
+                    MainWindow NewWindow = new MainWindow(user+passwd+user,user);
                     NewWindow.Show();
                     Close();
                 }
@@ -52,11 +61,18 @@ namespace DiaryApp
             }
             else
             {
-                string[] LoginDetails = new string[2];
-                LoginDetails[0] = EnteredUsername;
-                byte[] data = System.Text.Encoding.ASCII.GetBytes(EnteredPassword);
+                string[] LoginDetails = new string[3];
+
+                byte[] newdata = Encoding.ASCII.GetBytes(EnteredUsername);
+                newdata = new System.Security.Cryptography.SHA256Managed().ComputeHash(newdata);
+                LoginDetails[0] = Encoding.ASCII.GetString(newdata);
+
+                LoginDetails[1] = "Some Random Text";
+
+                byte[] data = Encoding.ASCII.GetBytes(EnteredPassword);
                 data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
-                LoginDetails[1] = System.Text.Encoding.ASCII.GetString(data);
+                LoginDetails[2] = Encoding.ASCII.GetString(data);
+
                 File.WriteAllLines("UserData.dat",LoginDetails);
                 MainWindow NewWindow = new MainWindow();
                 NewWindow.Show();

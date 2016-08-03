@@ -21,15 +21,18 @@ namespace DiaryApp
     /// </summary>
     public partial class NewEntryWindow : Window
     {
-        public NewEntryWindow()
+        string UserName; string UserPass;
+        public NewEntryWindow(string passwd = "", string user = "")
         {
             InitializeComponent();
             NewEntryText.Text = DateTime.Now.ToString("F") + "\n\n";
+            if (user != "") UserName = user;
+            if (passwd != "") UserPass = passwd;
         }
 
         private void CancelNewEntry_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow NewWindow = new MainWindow();
+            MainWindow NewWindow = new MainWindow(UserPass,UserName);
             NewWindow.Show();
             Close();
         }
@@ -37,11 +40,11 @@ namespace DiaryApp
         private void SubmitNewEntry_Click(object sender, RoutedEventArgs e)
         {
             string DiaryEntryText = NewEntryText.Text ;
-            DiaryEntryText = StringCipher.Encrypt(DiaryEntryText,MainWindow.UserPass);
+            DiaryEntryText = StringCipher.Encrypt(DiaryEntryText,UserPass);
             string filename = DateTime.Now.ToString("ddMMMyyyy_HHmmss");
-            filename = MainWindow.CurrentPath + "\\" + MainWindow.UserName + "-" +filename + ".diary";
+            filename = MainWindow.CurrentPath + "\\" + UserName + "-" +filename + ".diary";
             File.WriteAllText(filename, DiaryEntryText);
-            MainWindow NewWindow = new MainWindow();
+            MainWindow NewWindow = new MainWindow(UserPass,UserName);
             NewWindow.Show();
             Close();
         }

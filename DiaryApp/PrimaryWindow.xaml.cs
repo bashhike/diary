@@ -24,13 +24,17 @@ namespace DiaryApp
         
         public static string CurrentPath = File.Exists("diaryconfig.ini")?File.ReadAllLines("diaryconfig.ini")[1]:
             Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        public static string UserName = File.ReadAllLines("UserData.dat")[0];
-        public static string UserPass = File.ReadAllLines("UserData.dat")[1];
+        string UserName ; string UserPass;
 
-        public MainWindow()
+        public MainWindow(string passwd = "", string user = "")
         {
             InitializeComponent();
             ListFilesInDirectory(CurrentPath);
+            if (passwd != "" && user != "")
+            {
+                UserPass = passwd;
+                UserName = user;
+            }
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -40,7 +44,7 @@ namespace DiaryApp
 
         private void NewEntry_Click(object sender, RoutedEventArgs e)
         {
-            NewEntryWindow win = new NewEntryWindow();
+            NewEntryWindow win = new NewEntryWindow(UserPass,UserName);
             win.Show();
             Close();
         }
@@ -51,7 +55,7 @@ namespace DiaryApp
             {
                 string item = listBox.SelectedItem.ToString();
                 File.WriteAllText("AppData.dat", item);
-                EditFile win = new EditFile();
+                EditFile win = new EditFile(UserPass,UserName);
                 win.Show();
                 Close();
             }
@@ -63,7 +67,7 @@ namespace DiaryApp
 
         private void Options_Click(object sender, RoutedEventArgs e)
         {
-            Window1 OptionsWin = new Window1();
+            Window1 OptionsWin = new Window1(UserPass,UserName);
             OptionsWin.Show();
             Close();
         }
@@ -109,7 +113,7 @@ namespace DiaryApp
                 string InitialText = File.ReadAllText(MainWindow.CurrentPath + "\\" + file);
                 try
                 {
-                    InitialText = StringCipher.Decrypt(InitialText, MainWindow.UserPass);
+                    InitialText = StringCipher.Decrypt(InitialText,UserPass);
                 }
                 catch (System.Security.Cryptography.CryptographicException)
                 {

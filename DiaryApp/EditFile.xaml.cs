@@ -22,9 +22,12 @@ namespace DiaryApp
     public partial class EditFile : Window
     {
         string filename = File.ReadAllText("AppData.dat");
-        public EditFile()
+        string UserName; string UserPass;
+        public EditFile(string passwd = "", string user = "")
         {
             InitializeComponent();
+            if (user != "") UserName = user;
+            if (passwd != "") UserPass = passwd;
             LoadFile();
 
         }
@@ -32,16 +35,16 @@ namespace DiaryApp
         private void SubmitNewEntry_Click(object sender, RoutedEventArgs e)
         {
             string DiaryEntryText = EditText.Text;
-            DiaryEntryText = StringCipher.Encrypt(DiaryEntryText, MainWindow.UserPass);
+            DiaryEntryText = StringCipher.Encrypt(DiaryEntryText, UserPass);
             File.WriteAllText(MainWindow.CurrentPath + "\\" + filename, DiaryEntryText);
-            MainWindow NewWindow = new MainWindow();
+            MainWindow NewWindow = new MainWindow(UserPass,UserName);
             NewWindow.Show();
             Close();
         }
 
         private void CancelNewEntry_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow NewWindow = new MainWindow();
+            MainWindow NewWindow = new MainWindow(UserPass,UserName);
             NewWindow.Show();
             Close();
         }
@@ -51,7 +54,7 @@ namespace DiaryApp
             string InitialText = File.ReadAllText(MainWindow.CurrentPath + "\\" + filename);
             try
             {
-                InitialText = StringCipher.Decrypt(InitialText, MainWindow.UserPass);
+                InitialText = StringCipher.Decrypt(InitialText, UserPass);
             }
             catch (CryptographicException)
             {
