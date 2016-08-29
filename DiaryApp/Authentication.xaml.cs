@@ -53,7 +53,8 @@ namespace DiaryApp
 
                 if (EnteredPassword == StoredPassword && EnteredUsername == StoredUsername)
                 {
-                    MainWindow NewWindow = new MainWindow(user+passwd+user,user);
+                    string newPass = user + passwd + user;
+                    MainWindow NewWindow = new MainWindow(newPass, user);
                     NewWindow.Show();
                     Close();
                 }
@@ -79,7 +80,8 @@ namespace DiaryApp
                 LoginDetails[2] = Encoding.ASCII.GetString(data);
 
                 File.WriteAllLines("UserData.dat",LoginDetails);
-                MainWindow NewWindow = new MainWindow();
+                string newPass = user + passwd + user;
+                MainWindow NewWindow = new MainWindow(newPass, user);
                 NewWindow.Show();
                 Close();
             }
