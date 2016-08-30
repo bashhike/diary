@@ -40,7 +40,6 @@ namespace DiaryApp
         private void SubmitNewEntry_Click(object sender, RoutedEventArgs e)
         {
             string DiaryEntryText = NewEntryText.Text ;
-            MessageBox.Show(UserPass);
             DiaryEntryText = StringCipher.Encrypt(DiaryEntryText,UserPass);
             string filename = DateTime.Now.ToString("ddMMMyyyy_HHmmss");
             filename = MainWindow.CurrentPath + "\\" + UserName + "-" +filename + ".diary";
