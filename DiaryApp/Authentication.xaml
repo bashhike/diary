@@ -7,12 +7,24 @@
         mc:Ignorable="d"
         Title="Authentication" Height="400" Width="700">
     <Grid x:Name="AuthenticationWindow" Background="#FF306E99">
-        <TextBlock x:Name="textBlock" Margin="84,78,102,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="29" FontSize="14" FontWeight="Bold" FontFamily="Showcard Gothic"><Run Text="&#x9;&#x9;&#x9;"/><Run FontSize="20" Text="&#x9;Log in "/></TextBlock>
-        <PasswordBox x:Name="passwordBox" Margin="215,188,214,0" VerticalAlignment="Top"/>
-        <Button x:Name="SubmitPass" Content="Login" Margin="315,290,302,0" VerticalAlignment="Top" IsDefault="True" Click="SubmitPass_Click"/>
-        <TextBox x:Name="UserName" Height="19" Margin="215,141,214,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" TextChanged="UserName_TextChanged"/>
-        <TextBlock x:Name="Usernametext" Margin="215,125,396,0" TextWrapping="Wrap" Text="Username :" VerticalAlignment="Top"/>
-        <TextBlock x:Name="Passwordtext" Margin="215,172,396,0" TextWrapping="Wrap" Text="Password :" VerticalAlignment="Top"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
+        <StackPanel  Grid.Row="1" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center">
+            <TextBlock x:Name="textBlock" TextWrapping="Wrap" Margin="10,10,10,10" FontSize="20" HorizontalAlignment="Center" FontWeight="Bold" FontFamily="Showcard Gothic">Log In</TextBlock>
+            <TextBlock x:Name="Usernametext" TextWrapping="Wrap" Margin="10,0,10,0" HorizontalAlignment="Center" Text="Username" />
+            <TextBox x:Name="UserName" TextWrapping="Wrap" MaxWidth="250" Margin="10,0,10,10" Text="" TextChanged="UserName_TextChanged"/>
+            <TextBlock x:Name="Passwordtext" TextWrapping="Wrap" Margin="10,0,10,0" HorizontalAlignment="Center" Text="Password" />
+            <PasswordBox x:Name="passwordBox" MaxWidth="250" Margin="10,0,10,10" />
+            <Button x:Name="SubmitPass" Content="Login" Margin="10,10,10,10" IsDefault="True" Click="SubmitPass_Click" MaxWidth="60"/>
+        </StackPanel>
     </Grid>
 </Window>
