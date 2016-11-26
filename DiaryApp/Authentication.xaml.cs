@@ -26,7 +26,7 @@ namespace DiaryApp
             if (!File.Exists("UserData.dat"))
             {
                 textBlock.FontSize = 16;
-                textBlock.Text = "\t\t\tRegister";
+                textBlock.Text = "Register";
             }
         }
 
