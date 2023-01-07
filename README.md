@@ -1,5 +1,5 @@
 ![Diary app icon](https://github.com/ap916/DiaryApp/blob/master/DiaryApp/DiaryIcon.ico)
-# DiaryApp
+# Diary
 A personal diary application for Windows with built in encryption. Uses a 256 bit key cipher to encrypt your data.</br>
 Some of the other features include : </br>
 * Login via username and password.
